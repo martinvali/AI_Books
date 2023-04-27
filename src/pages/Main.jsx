@@ -1,4 +1,13 @@
+import { useEffect, useState } from "react";
+import { fetchBookPage } from "../helpers/fetchBookPage";
+
 export const Main = () => {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    fetchBookPage().then((data) => console.log(data));
+  }, []);
+
   return (
     <main>
       <section className="main-section">
@@ -10,13 +19,14 @@ export const Main = () => {
           <p>img here</p>
         </div>
       </section>
+      <div>Data here: {data}</div>
       <section>
-        <form>
+        <form method="post" action="/netlify/BookPages">
           <label for="topic">Topic</label>
           <input type="text" name="topic" id="topic" />
 
           <label for="length">Topic</label>
-          <input type="number" name="length" id="length" />
+          <input type="number" name="length" id="length" min={1} />
 
           <button type="submit">Generate</button>
         </form>
