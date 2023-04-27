@@ -1,6 +1,3 @@
-import * as dotenv from "dotenv";
-dotenv.config();
-
 const model = ["text-davinci-002", "gpt-3.5-turbo"];
 export const fetchBookPage = async (topic) => {
   const response = await fetch("https://api.openai.com/v1/completions", {
@@ -13,7 +10,7 @@ export const fetchBookPage = async (topic) => {
     }),
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.API_KEY}`,
+      Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
     },
   });
 

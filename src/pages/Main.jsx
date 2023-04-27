@@ -5,7 +5,9 @@ export const Main = () => {
   const [data, setData] = useState();
 
   useEffect(() => {
-    fetchBookPage().then((data) => console.log(data));
+    fetchBookPage("Write a book in 500 words").then((data) =>
+      setData(data.choices[0].text)
+    );
   }, []);
 
   return (
