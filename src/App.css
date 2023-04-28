@@ -40,3 +40,14 @@
 .read-the-docs {
   color: #888;
 }
+
+.loading {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 150px;
+  font-size: 50px;
+  border-radius: 10px;
+  background-color: #f3f3f3;
+}
